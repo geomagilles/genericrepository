@@ -84,7 +84,7 @@ abstract class GenericRepository extends BaseRepository implements GenericReposi
      * @param array $with
      * @return GenericRepositoryInterface|null
      */
-    protected function getFirstBy($key, $value, array $with = array())
+    public function getFirstBy($key, $value, array $with = array())
     {
         $key = $this->match($key);
         $query = $this->make($with);
@@ -99,7 +99,7 @@ abstract class GenericRepository extends BaseRepository implements GenericReposi
      * @param string $value
      * @param array $with
      */
-    protected function getManyBy($key, $value, array $with = array())
+    public function getManyBy($key, $value, array $with = array())
     {
         $key = $this->match($key);
         $query = $this->make($with);
@@ -114,7 +114,7 @@ abstract class GenericRepository extends BaseRepository implements GenericReposi
      * @param string $value
      * @return boolean|null
      */
-    protected function deleteFirstBy($key, $value)
+    public function deleteFirstBy($key, $value)
     {
         $key = $this->match($key);
         $query = $this->make($with);
@@ -129,7 +129,7 @@ abstract class GenericRepository extends BaseRepository implements GenericReposi
      * @param string $value
      * @return boolean|null
      */
-    protected function deleteManyBy($key, $value)
+    public function deleteManyBy($key, $value)
     {
         $key = $this->match($key);
         $query = $this->make($with);
