@@ -97,4 +97,41 @@ interface GenericRepositoryInterface
      * @return boolean|null
      */
     public function deleteById($id);
+
+    /**
+     * Find a single entity by key value
+     *
+     * @param string $key
+     * @param string $value
+     * @param array $with
+     * @return GenericRepositoryInterface|null
+     */
+    public function getFirstBy($key, $value, array $with = array());
+
+    /**
+     * Find many entities by key value
+     *
+     * @param string $key
+     * @param string $value
+     * @param array $with
+     */
+    public function getManyBy($key, $value, array $with = array());
+
+    /**
+     * Delete a single entity by key value
+     *
+     * @param string $key
+     * @param string $value
+     * @return boolean|null
+     */
+    public function deleteFirstBy($key, $value);
+
+    /**
+     * Delete many entities by key value
+     *
+     * @param string $key
+     * @param string $value
+     * @return boolean|null
+     */
+    public function deleteManyBy($key, $value);
 }

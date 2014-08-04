@@ -76,14 +76,6 @@ abstract class GenericRepository extends BaseRepository implements GenericReposi
         return $query->destroy($id);
     }
 
-    /**
-     * Find a single entity by key value
-     *
-     * @param string $key
-     * @param string $value
-     * @param array $with
-     * @return GenericRepositoryInterface|null
-     */
     public function getFirstBy($key, $value, array $with = array())
     {
         $key = $this->match($key);
@@ -92,13 +84,6 @@ abstract class GenericRepository extends BaseRepository implements GenericReposi
         return self::wrap($query->where($key, '=', $value)->first());
     }
 
-    /**
-     * Find many entities by key value
-     *
-     * @param string $key
-     * @param string $value
-     * @param array $with
-     */
     public function getManyBy($key, $value, array $with = array())
     {
         $key = $this->match($key);
@@ -107,13 +92,6 @@ abstract class GenericRepository extends BaseRepository implements GenericReposi
         return self::wrap($query->where($key, '=', $value)->get());
     }
 
-    /**
-     * Delete a single entity by key value
-     *
-     * @param string $key
-     * @param string $value
-     * @return boolean|null
-     */
     public function deleteFirstBy($key, $value)
     {
         $key = $this->match($key);
@@ -122,13 +100,6 @@ abstract class GenericRepository extends BaseRepository implements GenericReposi
         return self::wrap($query->where($key, '=', $value)->take(1)->delete());
     }
 
-    /**
-     * Delete many entities by key value
-     *
-     * @param string $key
-     * @param string $value
-     * @return boolean|null
-     */
     public function deleteManyBy($key, $value)
     {
         $key = $this->match($key);

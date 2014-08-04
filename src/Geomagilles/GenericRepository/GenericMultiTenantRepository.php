@@ -93,15 +93,7 @@ abstract class GenericMultiTenantRepository extends BaseRepository implements Ge
         return $query->destroy($id);
     }
 
-    /**
-     * Find a single entity by key value
-     *
-     * @param string $key
-     * @param string $value
-     * @param array $with
-     * @return GenericRepositoryInterface|null
-     */
-    protected function getFirstBy($key, $value, array $with = array())
+    public function getFirstBy($key, $value, array $with = array())
     {
         $key = $this->match($key);
         $query = $this->tenantColumn($this->make($with));
@@ -109,14 +101,7 @@ abstract class GenericMultiTenantRepository extends BaseRepository implements Ge
         return self::wrap($query->where($key, '=', $value)->first());
     }
 
-    /**
-     * Find many entities by key value
-     *
-     * @param string $key
-     * @param string $value
-     * @param array $with
-     */
-    protected function getManyBy($key, $value, array $with = array())
+    public function getManyBy($key, $value, array $with = array())
     {
         $key = $this->match($key);
         $query = $this->tenantColumn($this->make($with));
@@ -124,14 +109,7 @@ abstract class GenericMultiTenantRepository extends BaseRepository implements Ge
         return self::wrap($query->where($key, '=', $value)->get());
     }
 
-   /**
-     * Delete a single entity by key value
-     *
-     * @param string $key
-     * @param string $value
-     * @return boolean|null
-     */
-    protected function deleteFirstBy($key, $value)
+    public function deleteFirstBy($key, $value)
     {
         $key = $this->match($key);
         $query = $this->tenantColumn($this->make($with));
@@ -139,20 +117,14 @@ abstract class GenericMultiTenantRepository extends BaseRepository implements Ge
         return self::wrap($query->where($key, '=', $value)->take(1)->delete());
     }
 
-    /**
-     * Delete many entities by key value
-     *
-     * @param string $key
-     * @param string $value
-     * @return boolean|null
-     */
-    protected function deleteManyBy($key, $value)
+    public function deleteManyBy($key, $value)
     {
         $key = $this->match($key);
         $query = $this->tenantColumn($this->make($with));
     
         return self::wrap($query->where($key, '=', $value)->delete());
     }
+    
     /**
      * Scope a query based upon a column name
      *
