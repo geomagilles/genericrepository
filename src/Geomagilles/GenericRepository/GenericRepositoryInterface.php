@@ -65,6 +65,12 @@ interface GenericRepositoryInterface
     public function create(array $data = []);
 
     /**
+     * Delete an entity
+     * 
+     */
+    public function delete();
+
+    /**
      * Return all entities
      *
      * @return GenericRepositoryInterface[]
@@ -94,9 +100,10 @@ interface GenericRepositoryInterface
      * Delete an entity by id
      * 
      * @param $id
+     * @param array $with
      * @return boolean|null
      */
-    public function deleteById($id);
+    public function deleteById($id, array $with = array());
 
     /**
      * Find a single entity by key value

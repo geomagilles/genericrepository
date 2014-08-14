@@ -35,6 +35,11 @@ abstract class GenericRepository extends BaseRepository implements GenericReposi
         return self::wrap($this->model->create($this->match($data)));
     }
 
+    public function delete()
+    {
+        return $this->model->delete();
+    }
+
     public function getAll(array $with = array())
     {
         $query = $this->make($with);
@@ -69,7 +74,7 @@ abstract class GenericRepository extends BaseRepository implements GenericReposi
         return $result;
     }
  
-    public function deleteById($id)
+    public function deleteById($id, array $with = array())
     {
         $query = $this->make($with);
   
