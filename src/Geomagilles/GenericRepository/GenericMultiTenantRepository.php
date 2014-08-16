@@ -86,7 +86,7 @@ abstract class GenericMultiTenantRepository extends BaseRepository implements Ge
         return $result;
     }
 
-    public function deleteById($id)
+    public function deleteById($id, array $with = array())
     {
         $query = $this->tenantColumn($this->make($with));
   
