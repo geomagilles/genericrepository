@@ -52,6 +52,11 @@ abstract class GenericMultiTenantRepository extends BaseRepository implements Ge
         return $entity;
     }
 
+    public function delete()
+    {
+        return $this->model->delete();
+    }
+    
     public function getAll(array $with = array())
     {
         $query = $this->tenantColumn($this->make($with));
